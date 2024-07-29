@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>顧客編集</title>
+</head>
+
+<body>
+    <form action="/film/update" th:action="@{/film/update}" th:object="${pageEdit}" method="post">
+        <h1>顧客編集</h1>
+        <input type="hidden" th:field="${pageEdit.film_id}" th:value="page.film_id">
+        <input type="text" th:field="${pageEdit.title}" th:value="page.title">
+        <input type="text" th:field="${pageEdit.description}" th:value="pageEdit.description">
+        <input type="text" th:field="${pageEdit.replacement_cost}" th:value="pageEdit.replacement_cost">
+        <button type="submit">更新</button>
+    </form>
+</body>
+
+</html>

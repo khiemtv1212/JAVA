@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>顧客登録</title>
+</head>
+<body>
+    <form action="/customer/regist" method="post">
+        <h1 th:text="${page.title}">顧客一覧画面</h1>
+        <h1>顧客登録</h1>
+        <input type="text" id="first_name" name="first_name">
+        <input type="text" id="last_name" name="last_name">
+        <input type="text" id="email" name="email">
+        <button type="submit">登録</button>
+    </form>
+</body>
+</html>

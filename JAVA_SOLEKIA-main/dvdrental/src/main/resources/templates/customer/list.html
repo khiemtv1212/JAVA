@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>顧客一覧</title>
+</head>
+
+<body>
+    <!-- <h1 th:text="${page.title}">顧客一覧画面</h1> -->
+
+    <h1 th:text="${page.title}">顧客一覧画面</h1>
+    <form action="/customer/search" method="post">
+        <h1>顧客名検索</h1>
+        <!-- <input type="text" id="name" name="name" th:value="${seachval}"> -->
+        <input type="text" id="name" name="name">
+        <button type="submit">検索</button>
+    </form>
+
+    <!-- <form action="/customer/regist" method="get">
+        <button type="submit">新規登録</button>
+    </form> -->
+
+    <table>
+        <tr th:each="   item : ${page.list}">
+            <td th:text="${item.customer_id}">ID</td>
+            <td th:text="${item.first_name}">名前</td>
+            <td th:text="${item.last_name}">名前</td>
+            <td th:text="${item.email}">メール</td>
+            <td>
+                <a th:href="@{'/customer/delete/{id}'(id=${item.customer_id})}" href="#">
+                    削除
+                </a>
+            </td>
+            <td>
+                <a th:href="@{'/customer/edit/{id}'(id=${item.customer_id})}" href="#">
+                    編集
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- ★★↑のtdに入れる★★★★★★ -->
+
+</body>
+
+</html>

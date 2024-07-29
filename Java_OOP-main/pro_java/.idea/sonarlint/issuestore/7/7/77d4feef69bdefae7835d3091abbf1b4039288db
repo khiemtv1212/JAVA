@@ -1,0 +1,25 @@
+
+‡
+java:S1319
+"eThe type of "arrSV" should be an interface such as "List" rather than the implementation "ArrayList".(ôšÉıÿÿÿÿ8øî»±ş0
+…
+java:S1319"cThe type of "arr" should be an interface such as "List" rather than the implementation "ArrayList".(îÃ¾òüÿÿÿÿ8ùî»±ş0
+…
+java:S1319)"cThe type of "arr" should be an interface such as "List" rather than the implementation "ArrayList".(³¦ØÅıÿÿÿÿ8ùî»±ş0
+X
+java:S1854"6Remove this useless assignment to local variable "sv".(ç‡Í®şÿÿÿÿ8Óï»±ş0
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(ŞÊ¿èûÿÿÿÿ8Üï»±ş0
+U	java:S1063"9Replace this use of System.out or System.err by a logger.(ÀÎÜø8âï»±ş0
+A
+java:S1659;"Declare "i" on a separate line.(î©Ñıÿÿÿÿ8ãï»±ş0
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(‘¥¯´ùÿÿÿÿ8èï»±ş0
+Z	java:S106>"9Replace this use of System.out or System.err by a logger.(¾Âç£şÿÿÿÿ8éï»±ş0
+T	java:S106?"9Replace this use of System.out or System.err by a logger.(Ø×¦88êï»±ş0
+U	java:S106@"9Replace this use of System.out or System.err by a logger.(¤Ô÷„8êï»±ş0
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(û·Èş8ìï»±ş0
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(‹¨½•øÿÿÿÿ8ìï»±ş0
+T	java:S106C"9Replace this use of System.out or System.err by a logger.(û×Ë	8íï»±ş0
+>	java:S131E""Add a default case to this switch.(äö—Ä8îï»±ş0
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(±şÂ½ÿÿÿÿÿ8îï»±ş0
+T	java:S106T"9Replace this use of System.out or System.err by a logger.(Æ™è&8ğï»±ş0
+Z	java:S106Z"9Replace this use of System.out or System.err by a logger.(˜àô—øÿÿÿÿ8òï»±ş0

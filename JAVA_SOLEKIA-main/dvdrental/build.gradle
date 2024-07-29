@@ -1,0 +1,77 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.6'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'solekia'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "2022.0.2")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+	implementation 'org.springframework.cloud:spring-cloud-starter'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation group: 'org.webjars', name: 'webjars-locator', version: '0.34'
+    implementation 'org.webjars:bootstrap:4.1.0'
+	implementation 'org.webjars:jquery:3.3.1'
+    implementation 'org.webjars:font-awesome:5.0.13'
+    implementation 'org.webjars:datatables:1.10.16'
+	implementation 'org.mybatis.generator:mybatis-generator-core:1.4.0'
+	implementation 'tk.mybatis:mapper:4.2.0'
+
+}
+//**************************************
+// Mybatis Generator task
+//**************************************
+task mybatisGenerator {
+    doLast {
+        def properties = new Properties()
+        file('src/main/resources/mybatis/generator_config.properties').withInputStream { inputStream ->
+            properties.load(inputStream)
+        }
+        ant.properties['targetProject'] = properties.getProperty('target.project')
+        ant.properties['driverClass'] = properties.getProperty('db.driverClassName')
+        ant.properties['connectionURL'] = properties.getProperty('db.url')
+        ant.properties['userId'] = properties.getProperty('db.username')
+        ant.properties['password'] = properties.getProperty('db.password')
+        ant.properties['schema'] = properties.getProperty('db.schema')
+        ant.properties['modelPackage'] = properties.getProperty('package.model')
+        ant.properties['mapperPackage'] = properties.getProperty('package.mapper')
+        ant.taskdef(name: 'mbgenerator', classname: 'org.mybatis.generator.ant.GeneratorAntTask', classpath: configurations.mybatisGenerator.asPath)
+        ant.mbgenerator(overwrite: true, configfile: 'src/main/resources/mybatis/generator_config.xml', verbose: true) {
+            propertyset {
+                propertyref(name: 'targetProject')
+                propertyref(name: 'userId')
+                propertyref(name: 'driverClass')
+                propertyref(name: 'connectionURL')
+                propertyref(name: 'password')
+                propertyref(name: 'schema')
+                propertyref(name: 'modelPackage')
+                propertyref(name: 'mapperPackage')
+                propertyref(name: 'sqlMapperPackage')
+            }
+        }
+    }
+}
+
+mybatisGenerator.group = 'mybatis'
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

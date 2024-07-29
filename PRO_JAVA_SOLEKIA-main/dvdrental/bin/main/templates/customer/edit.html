@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>顧客編集</title>
+</head>
+<body>
+    <form action="/customer/update" th:action="@{/customer/update}" th:object="${page}" method="post">
+        <h1>顧客編集</h1>
+        <input type="hidden" th:field="${page.customer_id}" th:value="page.customer_id">
+        <input type="text" th:field="${page.first_name}" th:value="page.first_name">
+        <input type="text" th:field="${page.last_name}" th:value="page.last_name">
+        <input type="text" th:field="${page.email}" th:value="page.email">
+        <button type="submit">更新</button>
+    </form>
+</body>
+</html>
